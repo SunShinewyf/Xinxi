@@ -1,0 +1,51 @@
+<html>
+       <include file="Public:header"/>
+       <include file="Public:left"/>
+	   <div id="right">
+	   <img src="__PUBLIC__/Images/2.jpg"/><h2>首页图片管理</h2>
+	   <div class="outer-box">
+	     <div class="box">
+		    <div class="box-title">模块说明</div>
+			  <div class="content">
+			    <p>本模块主要是针对官网首页的图片进行管理，可以浏览所有图片，还可以执行对图片的删除操作</p>
+			  </div>
+		 </div>
+	  </div>
+	    <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">首页图片列表</div>
+			  <div class="content">
+		         <table class="table">
+				    <tr>
+					   <th>图片号</th>
+					   <th>图片名</th>
+					   <th>图片描述信息</th>
+					   <th>图片所在新闻的标题</th>
+					   <th>图片发布人</th>
+					   <th>发布时间</th>
+					   <th>操作</th>
+					</tr>
+				<volist name="list" id="vo">
+					<tr>
+					  <th>{$vo['iid']}</th>
+					  <th>{$vo['iname']}</th>
+					  <th>{$vo['idescribe']}</th>
+					  <th>{$vo['ititle']}</th>
+					  <th>{$vo['iauthor']}</th>
+					  <th>{$vo['idate']}</th>
+					  <th>
+					      <a href="__UPLOADS__/Pictures/images/{$vo['iname']}">查看</a>
+					      <a onclick="if (confirm('确定要删除吗？')) return true; else return false;" 
+						  href="__APP__/Img/deleteImg?iid={$vo['iid']}">删除</a>
+					  </th>
+					</tr>
+				</volist>
+				</table>
+				  <{$show}>
+			  </div>
+			</div>
+		</div>
+	</div>
+   </div>
+ </body>
+</html>

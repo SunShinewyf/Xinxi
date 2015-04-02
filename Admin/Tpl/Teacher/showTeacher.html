@@ -1,0 +1,58 @@
+<html>
+    <include file="Public:header"/>
+    <include file="Public:left"/>
+	<div id="right">
+	   <img src="__PUBLIC__/Images/2.jpg"/><h2>前台人物名录管理</h2>
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">板块说明</div>
+			  <div class="content">
+			    <p>在该板块里，管理员可以查看所有的前台名单以及其他详细资料，还可以实现对前台人物资料的删除和修改,<span>当该人物不是教师时，
+				则教师所在系别一栏为空</span></p>
+			  </div>
+			</div>
+	   </div>
+ 
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">教师名录</div>
+			  <div class="content">
+			      <table class="table">
+				    <tr>
+					   <th>教师号</th>
+					   <th>教师名</th>
+					   <th>人物身份</th>
+					   <th>教师所属系别</th>
+					   <th>人物照片</th>
+					   <th>添加时间</th>
+					   <th>操作</th>
+					</tr>
+			   <volist name="list" id="vo">
+					<tr>
+					  <th>{$vo['tid']}</th>
+					  <th>{$vo['tname']}</th>
+					  <th>{$vo['kname']}</th>
+					  <th>{$vo['cname']}</th>
+					  <th>{$vo['tpic']}</th>
+					  <th>{$vo['tbuild']}</th>
+					  <th>
+					      <a href="__ROOT__/index.php/Szdw/Get_info/t/{$vo['tid']}">查看</a>
+					      <a onclick="if (confirm('确定要删除吗？')) return true; else return false;" 
+						  href="__APP__/Teacher/delTeacher?tid={$vo['tid']}">删除</a>
+						  <a href="__APP__/Teacher/updateTeacher?tid={$vo['tid']}">更新</a>
+					  </th>
+					</tr>
+				</volist>
+				</table>
+				  <{$show}>	
+			  </div>
+			</div>
+	   </div>
+	   
+	   
+	   
+	   
+	   
+	</div>
+</body>
+</html>

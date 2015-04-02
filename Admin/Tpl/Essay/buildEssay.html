@@ -1,0 +1,167 @@
+<html>
+<script charset="utf-8" src="__PUBLIC__/Editor/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Editor/lang/zh_CN.js"></script>
+</head>
+<script>
+     /*   var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('#editor_id');
+		    KE.sync('editor_id');
+
+        });*/
+		  KindEditor.ready(function(K) {
+          window.editor = K.create('#editor_id',{
+            resizeType: '1',    //高度可拖动
+            width: '75%',
+            height: '400px',
+            cssData: 'body { font-size: 14px; }',
+            fillDescAfterUploadImage: 'true',
+            
+            afterCreate: function(){ $('.ke-container').css("border", "none")},
+            items: [
+                'source', 'preview', '|', 'undo', 'redo', 'cut', 'copy', 'paste',
+                'plainpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                'insertfile', 'table', 'hr', 'emoticons', 'baidumap',
+                'anchor', 'link', 'unlink', '|', 'about'
+            ]
+			//afterBlur : function(){this.sync();}//需要添加的
+        });
+   });
+		
+		
+</script>
+    <include file="Public:header"/>
+    <include file="Public:left"/>
+	<div id="right">
+    <img src="__PUBLIC__/Images/2.jpg"/><h2>添加新文章</h2>
+	   	<div class="outer-box">
+			<div class="box">
+			  <div class="box-title">版块说明</div>
+			  <div class="content">
+			     <p>你可以在本模块进行对已发文章的再编辑，还可以添加新的文章，只需要在下方编辑信息即可。<span>注意下方的表单必须填写完整</span></p>
+			  </div>
+			</div>
+	   </div>
+  
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">填写相应信息并提交</div>
+			  <div class="content">
+			     <form action="__APP__/Essay/add" method="post">
+				 <div class="wrap">
+				  <div class="team">
+				    <label for="etitle">*文章标题：</label></br></br>
+					<input type="text" name="etitle" class="form-control" id="title" placeholder="请填写文章标题" autocomplete="off"/>
+				  </div></br>
+				  <div class="team">
+					 <label for="efrom">*文章作者/来源：</label></br></br>
+					 <input type="text" name="efrom" class="form-control"id="from" placeholder="请填写文章来源" autocomplete="off"/>
+				  </div></br>
+				  <div class="team">
+                     <label for="eprogram"> *选择所属栏目：</label> </br></br>
+				      <select class="form-control" id="cpar" name="cpar">
+                        <option value="" selected>先选择父栏目</option>
+                           <volist name="parcol" id="parcol">
+                               <option value="{$parcol['code']}">{$parcol['pname']}</option>
+                           </volist>
+                      </select>
+                    <p class="help-block">选择父栏目后，选择子栏目</p>
+                    <select class="form-control" id="code" name="code" style="display:none" >
+                        <option value="0" selected>请先选择父栏目</option>
+                    </select>
+				 </div></br>
+				 <div class="team">
+				   <label>文章在页面的显示形式</label>
+				    <select class="form-control" id="kid" name="kid">请选择文章的显示形式
+					  <option value="">请选择文章在页面的显示形式</option>
+					  <option value="6">以文章内容显示</option>
+					  <option value="7">以文章标题显示</option>
+				    </select>
+				 </div></br>
+				  <div class="team">
+                     <input type="submit" id="submit" value="确认提交"/>	
+					 <input type="reset"  id="reset" value="重置"/>	
+                  </div>	
+              	</div>	
+				   <div class="team">
+				      <textarea id="editor_id" name="edetail" style="width:100% ;height:350px">
+					     <present name="detail">{$detail}</present>
+				      </textarea>
+				   </div>
+				 </form>
+			  </div>
+			</div>
+	   </div>
+	 </div>
+	   <script>
+
+	       $(function(){
+		       $("#form").submit(function(){
+			   debugger;
+			   return false;
+			   });
+			   $("#submit").click(check);
+			   function check(){
+			       editor.sync();
+		       var title=$("#title").val();
+			   var from=$("#from").val();
+			   var detail=$("#editor_id").val();
+			   var cpar=$("#cpar").val();
+			   var code=$("#code").val();
+			   var kid=$("#kid").val();
+			   if(detail==''){
+			      alert("请编辑正文！");
+				  $("#editor_id").focus();
+				  return false;
+			   }   
+			   if(title==''){
+			      alert("请填写文章标题！");
+				  $("#title").focus();
+			      return false;
+			   }
+		       if(from==''){
+			      alert("请填写文章来源");
+				  $("#from").focus();
+				  return false;
+			   }
+			   if(cpar==''){
+			      alert("请选择父级栏目！");
+				  return false;
+			   }
+			      if(code==''){
+			      alert("请填写子级栏目！");
+			      return false;
+			   }
+			   if(kid==""){
+			     alert("请选择文章的显示形式！");
+				 return false;
+			   }
+    }	  
+   $('#cpar').change(function(){
+        var CurSelected = $(this).val();
+        if( CurSelected != '0' ){
+		    $("#code").css("display","block");
+            $("#code").html('<option value="" selected>请选择子栏目</option>');
+            var theSelected = SelectData[CurSelected];
+            for( key in theSelected ){
+                $("#code").append('<option value="'+key+'">'+theSelected[key]+'</option>');
+            }
+            $('#code').show();
+        }else{
+            $('#code').hide();
+        }
+    });
+     var SelectData = $.parseJSON('{$sublist}');
+    var isRevise = "{$isRevise}", par = "{$par}", sub = "{$sub}", essay = $.parseJSON('{$essay}');/*{//需要放在引号里，防止被js误解析}*/
+    $(document).ready(CheckSelectData);
+    $(document).ready(CheckRevise); 
+	 
+})
+ 
+	   </script>
+	 </body> 
+</html>

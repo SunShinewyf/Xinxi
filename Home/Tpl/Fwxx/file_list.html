@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html>
+
+   <head>
+    <include file="Public:meta"/>
+       <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/show.css"/> 
+   </head>
+      <body>
+	  <include file="Public:header"/>
+	  <div id="box">
+	  <!--left menu start-->
+	    <div class="left">
+        <div class="menu">
+            <div class="menu-title">服务信息</div>
+            <ul class="menu">
+                 <li><a href="__URL__/xyh">校友会</a></li>
+				 <li><a href="__URL__/wjxz">文件下载</a></li>
+            </ul>
+	    </div>
+		</div>
+	<!--left menu end-->
+	<!--right list start-->
+	  <div class="right">
+		    <div class="img"></div>
+            <div class="essay">
+			   <div class="guide">
+			       当前位置:
+			       <a href="__APP__/Index/index">首页</a>
+			        /
+					<a href="__APP__/Fwxx/">服务信息</a>
+			        /
+			        <strong>下载专区</strong>
+			</div>
+ 
+        <div class="content">
+            <table class="table-file">
+                <volist name="files" id="fi">
+                    <tr>
+                        <td class="icon"><img src="__PUBLIC__/Images/file.png"></td>
+                        <td class="about">
+                            <h3 style="font-size:12px;">{$fi['fname']|msubstr=0,21,"utf-8",true}</h3>
+                            <p>文件大小：{$fi['fsize']}</p>
+                            <p>上传时间：{$fi['fbuild']}</p>
+                            <p>详情：{$fi['fdescrib']}</p>
+                        </td>
+                        <td class="dl-btn">
+                            <a class="btn" style="position:relative;left:20px;" href="__ACTION__/f/{$fi['fid']}">立即下载</a>
+                            <p>下载量：{$fi['ftimes']}</p>
+                        </td>
+                    </tr>
+                </volist>
+            </table>
+        </div>
+    </div>		
+	    <div class="page">{$page}</div>
+        <div class="share">
+            <span>将本页分享到：</span>
+            <span class="bdsharebuttonbox"></br>
+            <a href="#" class="bds_more" data-cmd="more"></a>
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        </span>
+        </div>
+		</div>
+	   <div style="text-align:center;clear:both"> </div>
+      </div>
+		<!--right list end-->
+    <include file="Public:footer"/>
+  </body>
+    <script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "【{$PageTitle}】 - 来自:华中农业大学信息学院！戳链接阅读原文-->",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "1",
+            "bdSize": "24"
+        },
+        "share": {}
+    };
+    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+</html>

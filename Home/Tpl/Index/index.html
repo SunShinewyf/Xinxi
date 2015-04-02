@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+ <html>
+  <head>
+  <include file="Public:meta"/>
+      <link rel="stylesheet"  type="text/css" href="__PUBLIC__/Css/home.css"/>
+      <link rel="stylesheet" type="text/css" href="__UPLOADS__/Pictures/css/box.css">
+      <script language="javascript" type="text/javascript" src="__UPLOADS__/Pictures/js/box.js"></script>
+      
+  </head>
+       <body>
+	   <include file="Public:header"/>
+		 <div id="content">
+		 <!--img start-->
+	 <div class="img"></div>
+		<div class="main">
+	    <div class="box">
+	    <p>新闻图片</p>   
+    <div id="show" class="d1">  
+	<div class="loading">Loading...<br /><img src="__PUBLIC__/Pictures/images/pic1.jpg" width="254" height="270" /></div>  
+	<ul class="imgs">
+	    <volist name="img" id="ig">
+		   <li>
+		    <span>{$ig['idate']}</span>
+		      <a href="__APP__/Index/Get_id/i/{$ig['iid']}"><img src="__UPLOADS__/Pictures/images/{$ig['iname']}" width="254" height="270" alt="{$ig['idescribe']}" /></a>
+		   </li>	
+		</volist>	
+	</ul>  
+   </div>  
+</div>
+ <!--img end-->
+	 <!--news start-->
+			  <div class="news1">
+				<p>学院新闻<a href="__APP__/Xydt/xyxw"  class="more">更多<img src="__PUBLIC__/Images/direction.jpg"/></a></p>
+                    <ul class="li-hot">
+                        <volist name="news" id="ns">
+                            <li>
+                                <span>{$ns['ebuild']}</span>
+                                <a href="__APP__/Index/content/e/{$ns['eid']}">{$ns['etitle']}</a>
+                            </li>
+                        </volist>
+                    </ul>
+		      </div>
+	 <!--news end-->
+	 <!--download start-->
+			 <div class="other">
+			    <p>通知公告<a href="__APP__/Xydt/tzgg"  class="more">更多<img src="__PUBLIC__/Images/direction.jpg"/></a></p>
+                <ul class="notice">
+                    <volist name="notices" id="no">
+                        <li>
+						    <span>{$no['ebuild']}</span>
+						    <a href="__APP__/Index/content/e/{$no['eid']}">{$no['etitle']}</a>
+					    </li>
+                    </volist>
+                </ul>
+            </div>
+	<!--download end-->
+	</div>
+</div>
+	  <include file="Public:footer"/>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html>
+   <head>
+    <include file="Public:meta"/>
+     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/show.css"/> 
+   </head>
+      <body>
+	  <include file="Public:header"/>
+	  <div id="box">
+	  <!--left menu start-->
+	    <div class="left">
+        <div class="menu">
+            <div class="menu-title"> {$ParCol['pname']}</div>
+            <ul class="menu">
+                <volist name="SubCols" id="SubVal">
+                    <li><a href="__APP__/{$ParCol['code']}/{$SubVal['code']}">{$SubVal['pname']}</a></li>
+                </volist>
+            </ul>
+	    </div>
+		</div>
+	<!--left menu end-->
+	<!--right list start-->
+	  <div class="right">
+		    <div class="img"></div>
+			<div class="essay">
+			   <div class="guide">
+			       当前位置:
+			       <a href="__APP__/Index/index">首页</a>
+			        /
+				   <a href="__APP__/{$ParCol['code']}">{$ParCol['pname']}</a>
+				   /	<strong>{$list['pname']}</strong>
+			   </div>
+			<hr>
+			
+			<h1 style="text-align:center;margin-top:20px;">{$essay['etitle']}</h1>
+			<p class="author" style="text-align:center;">文章来源:{$essay['efrom']}  &nbsp;发布日期:{$essay['ebuild']}  &nbsp; 阅读次数:{$essay['etimes']}</p>
+               <div class="content" style="margin-top:14px;text-indent:2em;">
+			      {$essay['edetail']}
+			   </div>
+			</div>
+			<hr>
+			
+			 <div class="page">{$page}</div>
+        <div class="share">
+            <span>将本页分享到：</span>
+            <span class="bdsharebuttonbox"></br>
+            <a href="#" class="bds_more" data-cmd="more"></a>
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        </span>
+        </div>
+	   	</div>
+		<div style="text-align:center; clear:both"> </div>
+     </div>
+		<!--right list end-->
+     <include file="Public:footer"/>
+	   
+  </body>
+    <script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "【{$PageTitle}】 - 来自:华中农业大学信息学院！戳链接阅读原文",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "1",
+            "bdSize": "24"
+        },
+        "share": {}
+    };
+    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+</html>

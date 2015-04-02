@@ -1,0 +1,68 @@
+<html>
+   <html>
+   <html>
+       <include file="Public:header"/>
+       <include file="Public:left"/>
+	   <div id="right">
+	   <img src="__PUBLIC__/Images/2.jpg"/><h2>修改管理员信息</h2>
+	   <div class="outer-box">
+	     <div class="box">
+		    <div class="box-title">模块说明</div>
+			  <div class="content">
+              <p>在本模块里，管理员可以更改登录后台的密码</p>
+			</div>
+		</div>
+	  </div>
+	   <div class="outer-box60">
+	      <div class="box">
+		    <div class="box-title">更改信息</div>
+			  <div class="content">
+                <form action="__APP__/Admin/change" method="post" id="form">
+				   <div class="team">
+				      <label for="apassword"> 当前密码:</label></br></br>
+				      <input type="password"  name="apassword"	id="password" class="form-control" placeholder="请填入当前密码" autocomplete="off"/>		
+				   </div></br>
+           	       <div class="team">
+				      <label for="confirm">新密码:</label></br></br>
+				      <input type="password"  name="newpassword" id="newpassword"  class="form-control" placeholder="请填入新密码" autocomplete="off"/>		
+				   </div></br>
+				   <div class="team">
+				      <label for="confirm">确认密码:</label></br></br>
+				      <input type="password"  name="confirm"  id="confirm"  class="form-control" placeholder="请填入新密码" autocomplete="off"/>		
+				   </div></br>
+				   <div class="team">
+				       <input type="submit" id="btn" value="确认修改"/>
+					   <input type="reset"  id="reset" value="重置"/>
+				   </div>
+				</form>
+            </div>
+	     </div>   
+	   </div>
+	<script>
+	   $(function(){
+	      $("#btn").click(check);
+		 function check(){
+			 var oldpassword=$("#password").val();
+			 var newpassword=$("#newpassword").val();
+			 var sure=$("#confirm").val();
+			 if( oldpassword==''){
+			    alert("请填写要修改的密码!");
+				$("#oldpassword").focus();
+				return false;
+			 }
+			  if( newpassword==''){
+			    alert("请填写新密码!");
+				$("#newpassword").focus();
+				return false;
+			 }
+			 	 if( newpassword!=sure){
+			    alert("确认密码与新密码不一致！");
+				$("#confirm").focus();
+				return false;
+			 }
+		  } 
+	   })
+	
+	</script>
+    </body>
+</html>

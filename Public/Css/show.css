@@ -1,0 +1,253 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+body{
+   background:url("../Images/bg.png") no-repeat center top;
+   display:block;
+   margin: 0 auto;
+}
+#box{
+   margin-top:0px;
+   width:998px;
+   margin:0 auto;
+   margin-bottom:20px;
+   border:1px solid  #ab6100;
+   border-top:none;
+  
+}
+#box .left{
+   margin-top:15px;
+   width:215px;
+   float:left;
+   margin-left:14px;
+   border:1px solid #ab6100 ;
+
+}
+.left .menu-title{
+   height:48px;
+   font-weight:bold;
+   background:#ab6100;
+   text-align:center;
+   line-height:48px;
+   font-size:20px;
+
+}
+.left .menu ul{
+   list-style-type:none;
+   text-align:center;
+   width:215px;
+}
+.left .menu li{
+  height:48px;
+	margin-top:-4px;
+  line-height:48px;
+  font-size:17px;
+  font-weight:bold;
+  background:white;
+}
+.left .menu li a{
+    color:#000000;
+    text-decoration:none;
+    max-width: 300px;
+    white-space: nowrap;
+	word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.left .menu li a:hover{ 
+	text-decoration: underline;
+    background:#CCEEFF  ;
+	}
+#box .right{
+   width:748px;
+   float:right;
+   border:1px solid #ab6100 ;
+   border-bottom:none;
+   border-top:none;
+   border-right:none;
+}
+#box .right .img{
+   position:relative;
+   top:0px;
+   left:-2px;
+   margin:0 auto;
+   width:750px;
+   height:156px;
+   background:url("../Images/3.jpg") no-repeat top right;
+   z-index:-1;
+}
+#box .right .essay{
+   margin-top:15px;
+ 
+   
+}
+ .guide a{
+     line-height:40px;
+     font-size:14px;
+     color:black;
+	 text-decoration:none;
+ }
+ .essay{
+    font-size:14px;
+	line-height:28px;
+	letter-spacing:1px;
+	font-family:Tahoma;
+	margin-right:20px;
+    margin-left:20px;
+ }
+ .guide strong{
+     font-size:16px;
+	 color:#ab6100;
+  
+  }
+  .table-file p{
+    font-size:13px;
+    line-height:20px;
+  }
+
+  .btn{
+  margin-left:250px;
+  }
+  
+  .icon{
+    padding:5px;
+  
+  }
+ .list-tips{
+     margin-top:20px;
+	 font-size:18px;
+	 margin-left:20px;
+ }
+ .list-title{
+    padding-top:7px;
+	padding-bottom:40px;
+    list-style: none;
+    margin-left:14px;
+}
+.list-title li{
+    font-size:14px;
+    padding: 0 8px 0 12px; 
+    line-height: 30px;
+    border-bottom: 1px dashed #e0e0e0;
+    background: url("../Images/td.png") no-repeat;
+}
+
+.list-title li a{
+    margin-top:0px !important;
+    margin-top:-30px;
+    color:black;
+    display: block;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list-title li a:hover{ 
+    color: #0E9319;
+	}
+.list-title li span{
+    float: right;
+	color: #666; 
+	font-size: 12px;
+	}
+
+.content .course {
+   width:100%;
+   margin:0 auto;
+   padding-top:20px;
+   padding-bottom:20px;
+ 
+}	
+
+.content li{
+   list-style-type:none;
+   font-size:20px;
+   font-weight:normal;
+   margin-top:-5px;
+   display:inline;
+   width:20px;
+   height:15px;
+   padding-left:20px;
+ 
+
+}
+.content li a{text-decoration:none;color:black;}
+.content li a:hover{text-decoration:underline;}
+
+.content .showlist{
+    padding-left:20px;
+	font-family:SimSun;
+    font-size:15px;
+	font-weight:bold;
+    height:25px;
+	line-height:25px;
+    background:#ab6100;
+	display:block;
+	position:relative;	
+}
+
+.content .courseList{
+        overflow:hidden;
+		border-left:2px solid #999;
+		margin-left:13px;
+}
+.content .teacher{
+	margin:0 11px 20px 11px;
+	position:relative;
+	width:40px;
+	height:20px;
+	border-radius:2px 2px 2px 2px;
+	display:inline;
+}
+
+.left  .nameList{
+   font-size:21px;
+   font-weight:bold;
+   text-align:center;
+   list-style-type:none;
+   width:100%;
+   height:25px;
+   line-height:25px;
+   display:block;
+   border-bottom:1px solid #ab6100;
+   
+   }	
+.left  .nameList a{text-decoration:none;color:black;}
+.left  .nameList a:hover{text-decoration:underline;}
+
+.content .tname{
+   text-align:center;
+   font-size:20px;
+   font-weight:bold;
+}
+
+.content .tpic{
+    margin-top:10px;
+    margin-left:250px;
+	width:250px;
+	height:250px;
+}
+
+.content .tinformation{
+width:500px;
+    margin:0 auto;
+	font-size:18px;
+	padding-bottom:40px;
+}
+
+
+
+.page{
+    clear:both;
+    margin-top:15px;
+    font-size:14px;
+	margin-left:20px;
+	}
+.share{
+   margin-left:20px;
+   margin-top:15px;
+   font-size:14px;
+   font-weight:blod;
+}
+

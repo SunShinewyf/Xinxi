@@ -1,0 +1,124 @@
+<html>
+    <include file="Public:header"/>
+    <include file="Public:left"/>
+	<div id="right">
+	   <img src="__PUBLIC__/Images/2.jpg"/><h2>文章管理</h2>
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">模块说明</div>
+			  <div class="content">
+			     <p>在该模块里，管理员可以查看所有文章，还可以进行对已有文章的再编辑和删除操作</p>
+			  </div>
+			</div>
+	   </div>
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">文章搜索</div>
+			     <div class="type">
+				    <form method="get">
+				     <div class="search-type">搜索条件：</div>
+					 <select name="select" class="select">
+					    <option value="title" selected>按标题搜索</option>
+						<option value="resource">按作者/来源搜索</option>
+					 </select>
+					 
+					 <input name="key" type="text" class="key"/>
+                     <input type="submit" value="搜索" class="se-btn"/>			
+                     </form>					 
+				 </div>
+				 
+				 <div class="type">
+				 <form method="get">
+				     <div class="search-type" style="margin-top:-22px">对当前结果：</div>
+					 <select name="result" class="select">
+					     <option value="time" selected>按发布时间进行排序</option>
+						 <option value="num">按阅读次数进行排序</option>
+						 <option value="refresh">按更新时间进行排序</option>
+					 </select>
+					 <input type="submit" value="排序" class="se-btn"/>
+				 </form>
+				 </div>
+			  
+			</div>
+	   </div>
+
+
+       <div class="outer-box">
+	      <div class="box">
+		    <div class="box-title">文章列表</div>
+			  <div class="content">
+			     <table class="table">
+				    <tr>
+					   <th>文章号</th>
+					   <th>标题</th>
+					   <th>作者/文章来源</th>
+					   <th>文章的显示形式</th>
+					   <th>所属栏目</th>
+					   <th>阅读次数</th>
+					   <th>发布时间</th>
+					   <th>最近修改时间</th>
+					   <th>操作</th>
+					</tr>
+				<volist name="list" id="vo">
+					<tr>
+					  <th>{$vo['eid']}</th>
+					  <th>{$vo['etitle']}</th>
+					  <th>{$vo['efrom']}</th>
+					  <th>{$vo['kname']}</th>
+					  <th>{$vo['pname']}</th>
+					  <th>{$vo['etimes']}</th>
+					  <th>{$vo['ebuild']}</th>
+					  <th>{$vo['erevise']}</th>
+					  <th>
+					      <a href="__ROOT__/index.php/Index/content/e/{$vo['eid']}">查看</a>
+					      <a onclick="if (confirm('确定要删除吗？')) return true; else return false;" 
+						  href="__APP__/Essay/delEssay?eid={$vo['eid']}">删除</a>
+						  <a href="__APP__/Essay/updateEssay?eid={$vo['eid']}">更新</a>
+					  </th>
+					</tr>
+				</volist>
+				</table>
+				  <{$show}>
+			  </div>
+			</div>
+		  </div>
+	   </div>
+    </div> 
+	
+	<script>
+	
+	    $(function(){
+		     ///////////////////// 文章列表，筛选，选择栏目
+    $(".essayfilter #code").change(function(){
+        var code = $(this).val();
+        var actionUrl = $("#essayfilter").attr("action");
+        if( code != '0' ){
+            window.location.href = actionUrl+"/code/"+code;
+        }
+    });
+		
+		
+		
+		
+	      $('#cpar').change(function(){
+        var CurSelected = $(this).val();
+        if( CurSelected != '0' ){
+		    $("#code").css("display","block");
+            $("#code").html('<option value="0" selected>请选择子栏目</option>');
+            var theSelected = SelectData[CurSelected];
+            for( key in theSelected ){
+                $("#code").append('<option value="'+key+'">'+theSelected[key]+'</option>');
+            }
+            $('#code').show();
+        }else{
+            $('#code').hide();
+        }
+    });
+     var SelectData = $.parseJSON('{$sublist}');
+    var isRevise = "{$isRevise}", par = "{$par}", sub = "{$sub}", essay = $.parseJSON('{$essay}');/*{//需要放在引号里，防止被js误解析}*/
+    $(document).ready(CheckSelectData);
+    $(document).ready(CheckRevise); 
+})
+	</script>
+	</body>
+</html>

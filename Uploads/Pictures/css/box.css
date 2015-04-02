@@ -1,0 +1,13 @@
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+.d1{width:254px;height:270px;overflow:hidden;border:#666666 2px solid;background-color:#000000;position:relative;margin:1px auto 0 auto;}  
+.d1 ul{display:none;}  
+.loading{width:443px;border:#666666 2px solid;background-color:#000000;color:#FFCC00;font-size:12px;height:179px;text-align:center;padding-top:30px;font-weight:bold;}
+.d2{width:100%;height:270px;overflow:hidden;}  
+.num_list{position:absolute;width:100%;left:0px;bottom:-1px;background-color:#000000;color:#FFFFFF;font-size:12px;padding:4px 0px;height:20px;overflow:hidden;}  
+.num_list span{display:inline-block;height:16px;padding-left:6px;}
+.button{position:absolute;z-index:1000;right:0px;bottom:1px;font-size:13px;font-weight:bold;}  
+.button a{background-color:#666666;display:block;line-height:14px;float:left;padding:2px 6px;margin-right:3px;color:#FFFFFF;text-decoration:none;cursor:pointer;}  
+.button .b2{color:#FFCC33;background-color:#FF6633;}  

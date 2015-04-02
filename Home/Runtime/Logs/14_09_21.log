@@ -1,0 +1,36 @@
+[ 2014-09-21T15:30:57+08:00 ] 0.0.0.0 /xinxi/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.043531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.043691s ]
+SQL: SHOW COLUMNS FROM `tp_img` [ RunTime:0.014835s ]
+SQL: SELECT * FROM `tp_img` ORDER BY idate desc LIMIT 5   [ RunTime:0.026857s ]
+SQL: SHOW COLUMNS FROM `tp_essay` [ RunTime:0.010150s ]
+NOTIC: [8] Undefined index: eid G:\wamp\www\xinxi\ThinkPHP\Extend\Model\RelationModel.class.php 第 161 行.
+SQL: SELECT `etitle` FROM `tp_essay` WHERE ( 1=1 AND eid='' ) LIMIT 1   [ RunTime:0.028317s ]
+NOTIC: [8] Undefined index: eid G:\wamp\www\xinxi\ThinkPHP\Extend\Model\RelationModel.class.php 第 161 行.
+SQL: SELECT `etitle` FROM `tp_essay` WHERE ( 1=1 AND eid='' ) LIMIT 1   [ RunTime:0.000379s ]
+NOTIC: [8] Undefined index: eid G:\wamp\www\xinxi\ThinkPHP\Extend\Model\RelationModel.class.php 第 161 行.
+SQL: SELECT `etitle` FROM `tp_essay` WHERE ( 1=1 AND eid='' ) LIMIT 1   [ RunTime:0.000271s ]
+NOTIC: [8] Undefined index: eid G:\wamp\www\xinxi\ThinkPHP\Extend\Model\RelationModel.class.php 第 161 行.
+SQL: SELECT `etitle` FROM `tp_essay` WHERE ( 1=1 AND eid='' ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `tp_essay` [ RunTime:0.009534s ]
+SQL: SELECT `eid`,`etitle`,`ebuild` FROM `tp_essay` WHERE ( `code`='xyxw' ) ORDER BY ebuild desc LIMIT 9   [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `tp_essay` [ RunTime:0.010929s ]
+SQL: SELECT `eid`,`etitle`,`ebuild` FROM `tp_essay` WHERE ( `code`="tzgg" ) ORDER BY ebuild desc LIMIT 9   [ RunTime:0.000460s ]
+NOTIC: [2] Invalid argument supplied for foreach() G:\wamp\www\xinxi\Home\Lib\Action\IndexAction.class.php 第 24 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.025512s ]
+INFO: [ view_template ] --END-- [ RunTime:0.025651s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.235081s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.235279s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.040632s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.054825s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001968s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.263378s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.361458s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.055562s ]
+INFO: [ view_end ] --END-- [ RunTime:0.055807s ]
+

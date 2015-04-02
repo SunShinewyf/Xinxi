@@ -1,0 +1,70 @@
+<html>
+   <html>
+    <include file="Public:header"/>
+    <include file="Public:left"/>
+	<div id="right">
+	   <img src="__PUBLIC__/Images/2.jpg"/><h2>文件显示</h2>
+       	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">板块说明</div>
+			  <div class="content">
+			     <p>本模块可以通过右侧查看所有文件，还可以实行对文件的删除功能，通过右侧，你还可以对进行新文件的上传</p>
+			  </div>
+			</div>
+	     </div>
+		  <div class="outer-box70">
+			<div class="box">
+			  <div class="box-title">显示所有文件</div>
+			  <div class="content">
+			     <table class="table">
+				    <tr>
+					   <th>文件号</th>
+					   <th>文件名称</th>
+					   <th>文件大小</th>
+					   <th>文件的相关描述</th>
+					   <th>下载次数</th>
+					   <th>文件上传时间</th>
+					   <th>操作</th>
+					</tr>
+			<volist name="list" id="vo">
+					<tr>
+					  <th>{$vo['fid']}</th>
+					  <th>{$vo['fname']}</th>
+					  <th>{$vo['esize']}</th>
+					  <th>{$vo['fdescribe']}</th>
+					  <th>{$vo['ftimes']}</th>
+					  <th>{$vo['fbuild']}</th>
+					  <th>
+					      <a href="__UPLOADS__/Files/{$vo['fname']}">查看</a>
+					     <a onclick="if (confirm('确定要删除吗？')) return true; else return false;" href="__APP__/File/deleteFile?fid={$vo['fid']}">删除</a>
+					  </th>
+					</tr>
+			</volist>
+				</table>
+			  <{$show}>
+			  </div>
+			</div>
+	     </div>
+		 <div class="outer-box30">
+			<div class="box">
+			  <div class="box-title">上传新文件</div>
+			  <div class="content">
+			    <form action="__APP__/File/addFile" method="post" id="form" enctype="multipart/form-data">
+				     <div class="team">
+					    <label for="file">选择文件</label></br>
+					    <input type="file" class="form-control" name="fname" id="file"/>			 
+					</div></br>
+				     <div class="team">
+					    <label for="fdescribe">文件的相关描述</label></br>
+					    <textarea  name="fdescribe"  id="fdescribe">	
+                        </textarea>						
+					</div></br>
+					<div class="team">
+					<input type="submit" value="上传" id="submit"/>	
+					<input type="reset" value="重置" id="reset"/>					
+					</div>
+				</form>
+			  </div>
+			</div>
+	     </div>
+</html>

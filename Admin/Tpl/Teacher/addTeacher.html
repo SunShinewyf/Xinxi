@@ -1,0 +1,137 @@
+<html>
+<script charset="utf-8" src="__PUBLIC__/Editor/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Editor/lang/zh_CN.js"></script>
+</head>
+<script>
+     /*   var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('#editor_id');
+		    KE.sync('editor_id');
+
+        });*/
+		  KindEditor.ready(function(K) {
+          window.editor = K.create('#editor_id',{
+            resizeType: '1',    //高度可拖动
+            width: '75%',
+            height: '400px',
+            cssData: 'body { font-size: 14px; }',
+            fillDescAfterUploadImage: 'true',
+            uploadJson: '__URL__/upload_json',
+            afterCreate: function(){ $('.ke-container').css("border", "none")},
+            items: [
+                'source', 'preview', '|', 'undo', 'redo', 'cut', 'copy', 'paste',
+                'plainpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                'insertfile', 'table', 'hr', 'emoticons', 'baidumap',
+                'anchor', 'link', 'unlink', '|', 'about'
+            ]
+			//afterBlur : function(){this.sync();}//需要添加的
+        });
+   });
+		
+		
+</script>
+    <include file="Public:header"/>
+    <include file="Public:left"/>
+	<div id="right">
+	   <img src="__PUBLIC__/Images/2.jpg"/><h2>添加前台人物</h2>
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">板块说明</div>
+			  <div class="content">
+			    <p>在该板块里，可以实现对前台人物的添加，<span>以下所有项，必须填写完整,只有当人类别为教师时才会有教师所在系别选项</span></p>
+				
+			  </div>
+			</div>
+	   </div>
+	   <div class="outer-box">
+			<div class="box">
+			  <div class="box-title">添加新人物</div>
+			  <div class="content">
+	              <form action="__APP__/Teacher/add" method="post"  id="form" enctype="multipart/form-data">
+				     <div class="wrap">
+				     <div id="team">
+				       <label for="tname">人名</label></br>
+                       <input type="text" id="tname" class="form-control" name="tname"  placeholder="请填写人名" autocomplete="off"/>
+					 </div></br>
+					 <div id="team">
+				       <label for="tpic">人物照片</label></br>
+                       <input type="file" id="tpic" class="form-control" name="tpic" />
+					 </div></br>
+					 <div id="team">
+				       <label for="tkind">人物类别</label></br>
+					     <select class="form-control" id="kid" name="kid">
+                           <option value="" selected>先选择人物类别</option>
+                             <option value="1">老师</option>
+							 <option value="2">教授</option>
+							 <option value="3">导师</option>
+						     <option value="4">专家</option>
+							 <option value="5">领导</option>
+                         </select>
+					 </div></br>
+					 <div id="team">
+				       <label for="cname">教师所在系别</label></br>
+                        <input type="text" name="cname" id="cname" class="form-control" placeholder="请填写教师所在系别" autocomplete="off" style="display:none;"/>
+					 </div></br>
+					 <div id="team">
+					   <input type="submit" id="submit" value="提交" />
+					   <input type="reset" id="reset" value="重置"/>
+					 </div>
+					 </div>
+				    <div class="team">
+					    <label for="tinformation">人物信息</label></br>
+					    <textarea  name="tinformation"  class="form-control" id="editor_id" >	
+                        </textarea>						
+					</div></br>
+				  </form>		
+
+				  </div>
+			</div>
+	   </div>
+    </div>
+	<script>
+	   $(function(){
+	       $("#submit").click(check);
+		   function check(){
+		    editor.sync();
+	       var name=$("#tname").val();
+		   var pic=$("#tpic").val();
+		   var kid=$("#kid").val();
+		   var cname=$("#cname").val();
+		   var tinformation=$("#editor_id").val();
+		   if(name==''){
+		      alert("请填写教师姓名！");
+			  $("#tname").focus();
+			  return false;
+		   }
+		  if(kid==''){
+		       alert("请填写教师类别");
+			   return false;
+		   }
+		   /*if(cname==''){
+		       alert("请填写教师所在系别！");
+			   $("#cname").focus();
+			   return false;
+		   }*/
+		   if(tinformation==''){
+		       alert("请填写教师的相关信息！");
+			   $("#editor_id").focus();
+			   return false;
+		   }
+		 }
+		    $("#kid").change(function(){
+			    var result=$(this).val();
+				if(result==1){
+				   $("#cname").show();
+				}else{
+				    $("cname").hide();
+				}
+			});
+	   });
+	
+	</script>
+</body>
+</html>
